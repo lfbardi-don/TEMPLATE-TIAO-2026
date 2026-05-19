@@ -30,7 +30,7 @@
 
 ## 📜 Descrição
 
-*Descreva seu projeto com base no texto do PBL (até 600 palavras)*
+*Descreva seu projeto com base no texto da Global Solution (até 600 palavras)*
 
 
 ## 📁 Estrutura de pastas

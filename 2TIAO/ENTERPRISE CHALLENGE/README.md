@@ -43,7 +43,7 @@ Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
 
 - <b>data</b>: Contém os dados utilizados, como arquivos CSV, Excel, JSON, bases sintéticas e amostras geradas.
 
-- <b>entregas</b>: Reúne tudo o que será enviado no portal, como vídeos (ou links), PDFs, arquivos finais, prints de tela e roteiro. Quando for solicitado algum arquivo específico (prints, relatórios, gravações, etc.) a ser entregue no portal, ele também deverá ser inserido na pasta do Sprint atual, dentro de <b>entregas</b>.
+- <b>entregas</b>: Reúne tudo o que será enviado no portal, como vídeos (ou links), PDFs, arquivos finais, prints de tela e roteiro. Quando for solicitado algum arquivo específico (prints, relatórios, gravações, etc.) a ser entregue no portal, ele também deverá ser inserido na pasta do Sprint atual, dentro de <b>entregas</b>. Cada Sprint possui uma pasta própria para suas entregas.
 
 - <b>README.md</b>: Arquivo que serve como guia e explicação geral sobre a ideia do grupo.
 
