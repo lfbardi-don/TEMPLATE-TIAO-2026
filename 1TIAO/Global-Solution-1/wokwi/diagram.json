@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "author": "ephemnous",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -120, "left": 200,
+      "attrs": { "value": "50" } },
+    { "type": "wokwi-pushbutton", "id": "btn1", "top": 130, "left": 210,
+      "attrs": { "color": "red", "label": "eclipse" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": 10, "left": 230, "attrs": { "value": "220" } },
+    { "type": "wokwi-led", "id": "led1", "top": 0, "left": 320,
+      "attrs": { "color": "yellow", "label": "carga" } }
+  ],
+  "connections": [
+    [ "esp:3V3", "pot1:VCC", "red", [] ],
+    [ "esp:GND.1", "pot1:GND", "black", [] ],
+    [ "pot1:SIG", "esp:D34", "green", [] ],
+
+    [ "esp:D27", "btn1:1.l", "green", [] ],
+    [ "btn1:2.l", "esp:GND.2", "black", [] ],
+
+    [ "esp:D25", "r1:1", "green", [] ],
+    [ "r1:2", "led1:A", "green", [] ],
+    [ "led1:C", "esp:GND.3", "black", [] ]
+  ]
+}

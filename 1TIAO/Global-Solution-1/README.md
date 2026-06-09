@@ -1,84 +1,69 @@
-# FIAP - Faculdade de Informática e Administração Paulista
+# Ephemnous
 
-<p align="center">
-<a href="https://www.fiap.com.br/">
-  <img src="../../../assets/logo-fiap.png" 
-       alt="FIAP - Faculdade de Informática e Administração Paulista" 
-       width="40%">
-</a>
-</p>
+Ephemeris + Nous. Escalonador de IA para um data center em órbita baixa (LEO).
 
-<br>
+No espaço, a energia solar oscila. A cada ~95 min o satélite entra na sombra da Terra (o eclipse). O calor só sai por radiação, porque no vácuo não há convecção. O ephemnous prevê quanta energia e quanta folga térmica existirão nas próximas janelas e decide o que computar a cada instante: rodar trabalho pesado no sol, fazer checkpoint antes do eclipse e dar throttle para não superaquecer.
 
-# Nome do projeto/atividade
+## Arquitetura
 
-## Nome do grupo
+```
+   Wokwi: ESP32 (no 0)  --WiFi HTTP POST /telemetry-->  FastAPI  -->  PostgreSQL
+   pot = irradiancia/gatilho                            |  forecaster (sklearn) preve
+   LED PWM = carga/throttle  <--comando na resposta-----|  MPC decide run/defer/checkpoint/throttle
+                                                         |
+                       frota simulada (N nos) + dataset de treino  -- MESMA fisica --   Dashboard (Streamlit)
+```
 
-## 👨‍🎓 Integrantes: 
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Nome do integrante 1</a>
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Nome do integrante 2</a>
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Nome do integrante 3</a> 
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Nome do integrante 4</a> 
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Nome do integrante 5</a>
+A fisica orbital/termica fica so no backend Python (`ephemnous/core/physics.py`), compartilhada pela demo ao vivo, pela frota simulada e pela geracao de dados de treino. O ESP32 e um no fino: sente (pot) e atua (LED), mas nao calcula o ambiente, como um satelite real.
 
-## 👩‍🏫 Professores:
-### Tutor(a) 
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Nome do Tutor</a>
-### Coordenador(a)
-- <a href="https://www.linkedin.com/in/andregodoichiovato/">Nome do Coordenador</a>
+## Resultados
 
+- Forecaster e ML de verdade. Skill vs persistencia inteligente 0.64-0.68 (energia) e 0.62-0.89 (folga termica). Skill vs efemeride pura 0.60-0.78. Preve a incerteza (apontamento), nao o eclipse deterministico. Sem leakage (features <= t, split por episodio, skill cai com o horizonte).
+- Escalonador preditivo vs reativo (comparacao justa, mesmo codigo, lookahead 0): no regime energia-critico a IA conclui ~20-25% mais jobs e perde ~65-75% menos (delta score +3.3 a +4.9, IC 95% > 0 em 3 blocos de sementes). Com folga de bateria da empate, e isso esta reportado. Ver a curva de regime em `data/regime_curve.png`.
+- RL / Deep Learning: avaliados e rejeitados com justificativa (politica otima simples; GBM no teto de Bayes). Trabalho futuro para filas combinatorias.
 
-## 📜 Descrição
+## Stack
 
-*Descreva seu projeto com base no texto da Global Solution (até 600 palavras)*
+FastAPI, PostgreSQL (Docker), scikit-learn, Streamlit, ESP32 simulado no Wokwi (Arduino C++), telemetria HTTP. Arquitetura limpa, sem DDD.
 
+## Rodar
 
-## 📁 Estrutura de pastas
+Pre-requisitos: Python 3.11+, Docker.
 
-Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
+```bash
+python -m venv .venv && source .venv/bin/activate
+pip install -e '.[ml,dashboard]'
+cp .env.example .env
 
-- <b>docs</b>: Pasta destinada à documentação textual, incluindo brainstorm, atas e registros de reuniões, desenhos, prints, diagramas, storyboard, estratégia de IA e arquitetura e etc.
+make up                                   # Postgres
+make migrate                              # schema
+OMP_NUM_THREADS=1 python scripts/train.py # treina o forecaster (+ metrics.json)
 
-- <b>src</b>: Todo o código fonte desenvolvido, como scripts em Python, R, JS ou HTML, notebooks, códigos para ESP32/Arduino, APIs ou microsserviços, além de modelos, inferências e etc. Os tipos de arquivos e códigos são definidos no enunciado da atividade.
+make api                                  # backend em :8000  (terminal 1)
+make dash                                 # dashboard em :8501 (terminal 2)
+make sim                                  # popula telemetria ao vivo (terminal 3)
+```
 
-- <b>data</b>: Contém os dados utilizados, como arquivos CSV, Excel, JSON, bases sintéticas e etc.
+Experimentos / artefatos:
 
-- <b>README.md</b>: Arquivo que serve como guia e explicação geral sobre o projeto (o mesmo que você está lendo agora).
+```bash
+OMP_NUM_THREADS=1 python scripts/compare_jobs.py        # ablacao 4 vias + IC pareado + curva de regime
+OMP_NUM_THREADS=1 python scripts/compare_jobs.py plot   # gera data/regime_curve.png
+OMP_NUM_THREADS=1 python scripts/demo.py                # narracao terminal (Plano B)
+```
 
+Wokwi: ver [wokwi/README.md](wokwi/README.md).
 
-‼️ OBSERVAÇÃO DO TUTOR, favor desconsiderar do seu arquivo final: não há obrigação de usar todas as pastas, use apenas o que fizer SENTIDO para a entrega. ‼️
+## Estrutura
 
-
-## 📎 Links e Observações
-
-- <b>Listagem de Links</b>: Links do projeto (ex. vídeos da entrega, páginas, etc.), 
-
-- <b>Explicação de decisões técnicas</b>: Observações do projeto,
-
-- <b>Observações Gerais</b>: Caso o projeto seja relacionado à alguma competição, deixar registrado no README se aceita ou não participar.
-
-
-## 🔧 Como executar o código
-
-*Acrescentar as informações necessárias sobre pré-requisitos (IDEs, serviços, bibliotecas etc.) e instalação básica do projeto, descrevendo eventuais versões utilizadas. Colocar um passo a passo de como o leitor pode baixar o seu código e executá-lo a partir de sua máquina ou seu repositório.*
-
-
-## 🗃 Histórico de lançamentos
-
-* 0.5.0 - XX/XX/2024
-    * 
-* 0.4.0 - XX/XX/2024
-    * 
-* 0.3.0 - XX/XX/2024
-    * 
-* 0.2.0 - XX/XX/2024
-    * 
-* 0.1.0 - XX/XX/2024
-    *
-
----
-
-
-## 📋 Licença
-
-<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/SabrinaOtoni/TEMPLATE-FIAP-GRAD-ON-IA">MODELO GIT FIAP</a> por <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://fiap.com.br">FIAP</a> está licenciado sobre <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
+```
+ephemnous/
+  core/       # entidades + regras puras (fisica, MPC, forecaster) - sem framework/IO
+  services/   # orquestracao (laco de controle)
+  infra/      # adapters: FastAPI (api.py), Postgres (db.py, repo.py), ML (ml_forecaster.py)
+  ml/         # features.py, dataset.py (geracao + anti-leakage)
+db/schema.sql # DDL do banco (fonte unica)
+scripts/      # train.py, compare_jobs.py, run_node_sim.py, demo.py
+dashboard/    # app.py (Streamlit), queries.py (read-only Postgres)
+wokwi/        # diagram.json, wokwi.toml, firmware/firmware.ino
+```

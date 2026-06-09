@@ -1,0 +1,13 @@
+# Config do Wokwi para a extensão do VS Code.
+# O gateway embutido dá ao ESP32 simulado acesso ao host (localhost) via host.wokwi.internal.
+# Os caminhos do firmware apontam para o binário compilado (arduino-cli / PlatformIO).
+# Veja wokwi/README.md.
+
+[wokwi]
+version = 1
+firmware = "firmware/build/firmware.ino.bin"
+elf = "firmware/build/firmware.ino.elf"
+
+[net]
+# habilita o gateway local (host.wokwi.internal -> sua máquina). Requer a extensão do VS Code.
+gateway = true

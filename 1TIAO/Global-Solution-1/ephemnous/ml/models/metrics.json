@@ -1,0 +1,122 @@
+[
+  {
+    "target": "power",
+    "h": 1,
+    "rmse_model": 4.492,
+    "rmse_base": 14.191,
+    "skill": 0.683,
+    "skill_eph": 0.777,
+    "skill_sun": 0.716,
+    "skill_transition": 0.787,
+    "skill_eclipse": 0.523,
+    "gap_tr": 0.051
+  },
+  {
+    "target": "power",
+    "h": 2,
+    "rmse_model": 5.808,
+    "rmse_base": 17.662,
+    "skill": 0.671,
+    "skill_eph": 0.713,
+    "skill_sun": 0.692,
+    "skill_transition": 0.823,
+    "skill_eclipse": 0.554,
+    "gap_tr": 0.054
+  },
+  {
+    "target": "power",
+    "h": 3,
+    "rmse_model": 6.786,
+    "rmse_base": 20.19,
+    "skill": 0.664,
+    "skill_eph": 0.667,
+    "skill_sun": 0.7,
+    "skill_transition": 0.769,
+    "skill_eclipse": 0.574,
+    "gap_tr": 0.047
+  },
+  {
+    "target": "power",
+    "h": 4,
+    "rmse_model": 7.664,
+    "rmse_base": 22.03,
+    "skill": 0.652,
+    "skill_eph": 0.627,
+    "skill_sun": 0.693,
+    "skill_transition": 0.726,
+    "skill_eclipse": 0.575,
+    "gap_tr": 0.062
+  },
+  {
+    "target": "power",
+    "h": 5,
+    "rmse_model": 8.201,
+    "rmse_base": 22.914,
+    "skill": 0.642,
+    "skill_eph": 0.604,
+    "skill_sun": 0.692,
+    "skill_transition": 0.641,
+    "skill_eclipse": 0.578,
+    "gap_tr": 0.073
+  },
+  {
+    "target": "margin",
+    "h": 1,
+    "rmse_model": 0.769,
+    "rmse_base": 6.953,
+    "skill": 0.889,
+    "skill_eph": null,
+    "skill_sun": 0.909,
+    "skill_transition": 0.86,
+    "skill_eclipse": 0.868,
+    "gap_tr": 0.026
+  },
+  {
+    "target": "margin",
+    "h": 2,
+    "rmse_model": 1.35,
+    "rmse_base": 7.154,
+    "skill": 0.811,
+    "skill_eph": null,
+    "skill_sun": 0.833,
+    "skill_transition": 0.762,
+    "skill_eclipse": 0.794,
+    "gap_tr": 0.042
+  },
+  {
+    "target": "margin",
+    "h": 3,
+    "rmse_model": 1.959,
+    "rmse_base": 7.378,
+    "skill": 0.735,
+    "skill_eph": null,
+    "skill_sun": 0.75,
+    "skill_transition": 0.7,
+    "skill_eclipse": 0.721,
+    "gap_tr": 0.063
+  },
+  {
+    "target": "margin",
+    "h": 4,
+    "rmse_model": 2.518,
+    "rmse_base": 7.581,
+    "skill": 0.668,
+    "skill_eph": null,
+    "skill_sun": 0.684,
+    "skill_transition": 0.647,
+    "skill_eclipse": 0.648,
+    "gap_tr": 0.085
+  },
+  {
+    "target": "margin",
+    "h": 5,
+    "rmse_model": 2.982,
+    "rmse_base": 7.733,
+    "skill": 0.614,
+    "skill_eph": null,
+    "skill_sun": 0.629,
+    "skill_transition": 0.609,
+    "skill_eclipse": 0.588,
+    "gap_tr": 0.1
+  }
+]

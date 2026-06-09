@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:16
+    container_name: ephemnous-db
+    environment:
+      POSTGRES_USER: ephemnous
+      POSTGRES_PASSWORD: ephemnous
+      POSTGRES_DB: ephemnous
+    ports:
+      - "5432:5432"
+    volumes:
+      - ephemnous_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ephemnous -d ephemnous"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  ephemnous_pgdata:

@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.egg-info/
+build/
+dist/
+
+# dados gerados (datasets de treino, modelos)
+data/
+*.parquet
+*.pkl
+
+.DS_Store
+.idea/
+.vscode/
