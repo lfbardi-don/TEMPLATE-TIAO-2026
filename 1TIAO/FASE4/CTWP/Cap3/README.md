@@ -206,7 +206,7 @@ Além das quatro tarefas exigidas, o notebook inclui análises extras — docume
 
 ---
 
-## 📎 Links e Observações
+## 📎 Links 
 
 - **Vídeo Apresentando o desenvolvimento do projeto:** `https://www.youtube.com/watch?v=DTHpHjmTeZ0`
 
