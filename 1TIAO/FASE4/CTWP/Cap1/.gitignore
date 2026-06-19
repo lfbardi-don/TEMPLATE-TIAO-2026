@@ -1,0 +1,14 @@
+# Ambiente Python
+.venv/
+__pycache__/
+*.pyc
+
+# Configuração local
+.env
+
+# Artefatos gerados pelo pipeline (reproduzíveis com `make pipeline`)
+# Comente a linha abaixo se quiser versionar os modelos.
+src/models/*.pkl
+
+# Sistema
+.DS_Store

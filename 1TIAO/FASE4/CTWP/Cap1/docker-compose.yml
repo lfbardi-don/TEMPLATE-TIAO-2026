@@ -1,0 +1,30 @@
+# ============================================================================
+# FarmTech Solutions — PostgreSQL (Ir Além 1)
+# Sobe um banco PostgreSQL e aplica db/schema.sql automaticamente na 1ª criação.
+#   docker compose up -d        # inicia
+#   docker compose down         # para (mantém os dados no volume)
+#   docker compose down -v      # para e APAGA os dados
+# ============================================================================
+services:
+  postgres:
+    image: postgres:16
+    container_name: farmtech_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-farmtech}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-farmtech}
+      POSTGRES_DB: ${POSTGRES_DB:-farmtech}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      # Scripts em initdb.d rodam apenas quando o volume é criado do zero.
+      - ./src/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h localhost -U ${POSTGRES_USER:-farmtech} -d ${POSTGRES_DB:-farmtech}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:
