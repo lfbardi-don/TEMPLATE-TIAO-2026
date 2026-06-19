@@ -179,7 +179,7 @@ make run              # streamlit run src/dashboard.py  →  http://localhost:85
 
 ## 📎 Links e Observações
 
-- **Vídeo (até 5 min):** `<preencher: link do vídeo da PARTE 1>`
+- **Vídeo (até 5 min):** `<[preencher: link do vídeo da PARTE 1](https://www.youtube.com/watch?v=NwIQvVF_ASg)>`
 - **Decisões técnicas:** ver seção *"Por que o dataset foi (re)modelado"*.
 - A versão original do grupo está preservada em `FASE4/legado_cap1_original/`.
 
