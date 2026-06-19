@@ -19,7 +19,7 @@
 
 ## 👩‍🏫 Professores
 ### Tutor(a)
-- `<preencher>`
+- Sabrina Otoni
 ### Coordenador(a)
 - André Godoi Chiovato
 
