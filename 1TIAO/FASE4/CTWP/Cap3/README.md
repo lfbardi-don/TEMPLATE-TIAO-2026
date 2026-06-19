@@ -206,7 +206,11 @@ Além das quatro tarefas exigidas, o notebook inclui análises extras — docume
 
 ---
 
-## 🗃 Histórico de lançamentos
+## 📎 Links e Observações
+
+- **Vídeo Apresentando o desenvolvimento do projeto:** `https://www.youtube.com/watch?v=DTHpHjmTeZ0`
+
+---
 
 * 1.0.0 - 19/06/2026
     * Pipeline de classificação CRISP-DM (5 algoritmos) com Grid Search.
