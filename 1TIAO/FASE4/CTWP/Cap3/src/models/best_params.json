@@ -1,0 +1,24 @@
+{
+  "KNN": {
+    "clf__n_neighbors": 3,
+    "clf__p": 1,
+    "clf__weights": "uniform"
+  },
+  "SVM": {
+    "clf__C": 10,
+    "clf__gamma": "scale",
+    "clf__kernel": "rbf"
+  },
+  "Random Forest": {
+    "clf__max_depth": 4,
+    "clf__max_features": "sqrt",
+    "clf__min_samples_leaf": 1,
+    "clf__n_estimators": 200
+  },
+  "Naive Bayes": {
+    "clf__var_smoothing": 1e-09
+  },
+  "Logistic Regression": {
+    "clf__C": 10
+  }
+}

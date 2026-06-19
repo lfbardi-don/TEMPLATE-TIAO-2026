@@ -1,0 +1,13 @@
+# Da Terra ao Código — FASE 4 / CAP 3
+# Classificação de variedades de grãos de trigo (Seeds Dataset) — CRISP-DM
+pandas>=2.1
+numpy>=1.26
+scikit-learn>=1.4
+matplotlib>=3.8
+seaborn>=0.13
+joblib>=1.3
+# Ambiente de notebook (entregável principal: src/seeds_classification.ipynb)
+jupyterlab>=4.0
+notebook>=7.0
+nbconvert>=7.0
+ipykernel>=6.29

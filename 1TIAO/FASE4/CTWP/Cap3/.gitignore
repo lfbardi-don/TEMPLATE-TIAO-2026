@@ -1,0 +1,13 @@
+# Ambiente Python
+.venv/
+__pycache__/
+*.pyc
+
+# Checkpoints de notebook
+.ipynb_checkpoints/
+
+# Artefatos de modelo serializados (reproduzíveis com `make pipeline`)
+src/models/*.pkl
+
+# Sistema
+.DS_Store

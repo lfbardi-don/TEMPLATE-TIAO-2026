@@ -1,0 +1,2 @@
+# Mantém a pasta data/ versionada. O dataset bruto (seeds_dataset.txt) e o
+# CSV limpo gerado (seeds_clean.csv) são pequenos e ficam versionados.
