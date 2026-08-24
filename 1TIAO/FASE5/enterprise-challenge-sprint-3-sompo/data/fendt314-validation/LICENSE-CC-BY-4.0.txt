@@ -1,0 +1,8 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+The source dataset attributed in README.md is licensed under CC BY 4.0.
+The authoritative license text is available at:
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+This repository retains the source attribution, DOI, and license identifier in
+manifest.json and README.md with the bundled observed validation slice.

@@ -1,0 +1,29 @@
+# Local datasets and generated artifacts
+/data/raw/
+/data/processed/
+/artifacts/
+/models/**/*.joblib
+!/models/fendt314-hybrid-v2.0.1/bundle.joblib
+/models/**/*.tmp
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local environment
+.env
+
+# Editors and operating system
+.DS_Store
+.idea/
+.vscode/
+
+# Local frontend
+/frontend/node_modules/
+/frontend/dist/
+/frontend/coverage/
+/frontend/test-results/
+/.playwright-cli/
+/.demo-real/
