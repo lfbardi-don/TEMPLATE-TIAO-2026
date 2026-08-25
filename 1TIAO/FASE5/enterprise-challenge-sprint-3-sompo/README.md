@@ -60,8 +60,6 @@ flowchart LR
   class MODEL model;
   class PG1,PG2 db;
   class API,UI output;
-
-Vídeo Demonstrativo do Projeto: [link](https://youtu.be/oCJZlmFzLKY)
 ```
 
 1. O recorte observado é importado para o PostgreSQL.
