@@ -26,11 +26,12 @@ e raridade dentro do regime atual. PostgreSQL, API FastAPI e dashboard React
 demonstram esse modelo funcionando de ponta a ponta com replay causal de dados
 reais.
 
+> Vídeo Demonstrativo do Projeto: [link](https://youtu.be/oCJZlmFzLKY)
+
 > **Limite científico:** o resultado apoia prevenção e priorização de inspeções.
 > Não representa diagnóstico de falha, previsão de dano ou sinistro, culpa, mau
 > uso ou probabilidade de indenização.
-> 
-> Vídeo Demonstrativo do Projeto: [link](https://youtu.be/oCJZlmFzLKY)
+
 
 ## Valor entregue
 
