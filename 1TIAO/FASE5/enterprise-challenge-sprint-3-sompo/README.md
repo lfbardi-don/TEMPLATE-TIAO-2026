@@ -29,6 +29,7 @@ reais.
 > **Limite científico:** o resultado apoia prevenção e priorização de inspeções.
 > Não representa diagnóstico de falha, previsão de dano ou sinistro, culpa, mau
 > uso ou probabilidade de indenização.
+> Vídeo Demonstrativo do Projeto: [link](https://youtu.be/oCJZlmFzLKY)
 
 ## Valor entregue
 
