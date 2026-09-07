@@ -10,18 +10,15 @@
 
 <br>
 
-#🌱 Ir Além — Sistema de Coleta e Comunicação de Dados via ESP32 e Wi-Fi
 
+# 🌱 Ir Além — Sistema de Coleta e Comunicação de Dados via ESP32 e Wi-Fi
 FarmTech Solutions — Projeto de extensão Ir Além 1
-
-## Nome do grupo
 
 ## 👨‍🎓 Integrantes: 
 - <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Karina Queiroz de Gennaro | 570928 1</a>
 - <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Luis Felipe Bardi | 569479</a>
 - <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Beatriz de Oliveira Ossola Ribeiro | 570190</a> 
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Nome do integrante 4</a> 
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Nome do integrante 5</a>
+
 
 ## 👩‍🏫 Professores:
 ### Tutor(a) 
@@ -32,43 +29,113 @@ FarmTech Solutions — Projeto de extensão Ir Além 1
 
 ## 📜 Descrição
 
-*Este projeto implementa um sistema de telemetria agrícola em tempo real utilizando um ESP32 integrado via Wi-Fi, coletando dados de dois sensores distintos e publicando-os em um broker MQTT para armazenamento em banco de dados SQLite e visualização em um dashboard interativo (Streamlit).
+Este projeto implementa um sistema de telemetria agrícola em tempo real utilizando um ESP32 integrado via Wi-Fi, coletando dados de dois sensores distintos e publicando-os em um broker MQTT para armazenamento em banco de dados SQLite e visualização em um dashboard interativo (Streamlit).
 
-O objetivo é monitorar, de forma remota e contínua, as condições ambientais de uma área de cultivo — temperatura, umidade relativa do ar e ocorrência de chuva — permitindo à FarmTech Solutions apoiar decisões de manejo agrícola (irrigação, plantio, colheita) com base em dados reais e históricos.*
+O objetivo é monitorar, de forma remota e contínua, as condições ambientais de uma área de cultivo — temperatura, umidade relativa do ar e ocorrência de chuva — permitindo à FarmTech Solutions apoiar decisões de manejo agrícola (irrigação, plantio, colheita) com base em dados reais e históricos.
+
+## 🧠 Justificativa da Escolha dos Sensores
+Sensor	Variável medida	Motivo da escolha
+DHT22	Temperatura do ar e umidade relativa	São as duas variáveis climáticas mais diretamente relacionadas à necessidade hídrica das plantas e ao risco de estresse térmico ou proliferação de fungos. O DHT22 foi escolhido em vez do DHT11 por ter maior precisão e faixa de leitura mais ampla, relevante para monitoramento agrícola.
+Botão (simulando sensor de chuva)	Ocorrência de precipitação	No ambiente de simulação Wokwi não há um componente nativo de sensor de chuva; um botão digital com interrupção foi usado para representar fielmente o comportamento binário de um sensor de chuva real (tipo FC-37/YL-83: contato fecha na presença de água). A lógica de software (leitura via interrupção, GPIO digital) é idêntica à que seria usada com o sensor físico — a troca do componente não exige nenhuma mudança na arquitetura do sistema.
+
+Isso satisfaz o requisito de pelo menos dois sensores distintos, ambos alinhados ao contexto de monitoramento agrícola da FarmTech Solutions.
 
 
 ## 📁 Estrutura de pastas
 
-Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
+<pre>
+📁 ir-alem/
+├── 📁 docs/
+│   ├── 🖼️ circuito_wokwi.png  # Diagrama do circuito (ESP32 + DHT22 + sensor de chuva)
+│   └── 📄 decisoes_tecnicas.md # Justificativas e decisões de arquitetura
+├── 📁 src/
+│   ├── 💻 esp32_firmware.ino    # Código-fonte do ESP32 (C/C++)
+│   ├── 🐍 receptor_mqtt.py      # Script Python: subscriber MQTT → SQLite
+│   └── 📊 app.py                # Dashboard Streamlit
+├── 📁 data/
+│   └── 🗄️ farmtech.db           # Banco de dados SQLite gerado pela coleta
+├── 📁 entregas/
+│   └── 🔗 video_demonstracao.txt # Link não listado do YouTube
+├── 📁 prints/                   # Capturas de tela do dashboard funcionando
+└── 📄 README.md
+</pre>
 
-- <b>docs</b>: Pasta destinada à documentação textual, incluindo brainstorm, atas e registros de reuniões, desenhos, prints, diagramas, storyboard, estratégia de IA e arquitetura do sensor (ESP32, Wokwi, etc.).
+## 💻 Arquitetura e "API" do Sistema
 
-- <b>src</b>: Todo o código fonte desenvolvido, como scripts em Python, R, JS ou HTML, notebooks, códigos para ESP32/Arduino, APIs ou microsserviços, além de modelos, inferências e logs.
+O sistema não expõe uma API REST tradicional — a interface entre os componentes é o contrato de mensagens MQTT: cada tópico funciona como um "endpoint" de publicação, com um payload simples e bem definido.
 
-- <b>data</b>: Contém os dados utilizados, como arquivos CSV, Excel, JSON, bases sintéticas e amostras geradas.
-
-- <b>entregas</b>: Reúne tudo o que será enviado no portal, como vídeos (ou links), PDFs, arquivos finais, prints de tela e roteiro.
-
-- <b>README.md</b>: Arquivo que serve como guia e explicação geral sobre o projeto (o mesmo que você está lendo agora).
-
-
-‼️ OBSERVAÇÃO DO TUTOR, favor desconsiderar do seu arquivo final: não há obrigação de usar todas as pastas, use apenas o que fizer SENTIDO para a entrega. ‼️
-
-
+<pre>
+[ESP32 / Wokwi] 
+    │
+    ├─(Wi-Fi)────────────────────────┐
+    │                                ▼
+    │                        [Broker HiveMQ]
+    │                        (broker.hivemq.com)
+    │                                │
+    │(MQTT / Pub)                    │(MQTT / Sub)
+    ▼                                ▼
+[DHT22 & Botão]              [receptor_mqtt.py]
+                                     │
+                                     ▼ (INSERT SQL)
+                               [farmtech.db]
+                                     │
+                                     ▼ (SELECT SQL)
+                                 [app.py]
+                               (Streamlit)
+</pre>
+                               
 ## 📎 Links e Observações
 
-- <b>Listagem de Links</b>: Links do projeto (ex. vídeos da entrega, páginas, etc.), 
+- Vídeo de demonstração (não listado, YouTube): (inserir link)
+- Simulação no Wokwi: (inserir link do projeto no Wokwi, se público)
 
-- <b>Explicação de decisões técnicas</b>: Observações do projeto,
+## ⚡ Explicação de Decisões Técnicas
+Optou-se por SQLite em vez de CSV para o armazenamento histórico, por ser um banco de dados relacional real (permitido explicitamente pelo enunciado), mais robusto contra concorrência de escrita e mais alinhado a boas práticas de persistência de dados IoT.
+Optou-se por um broker MQTT público (HiveMQ) em vez de um broker local, para simplificar a entrega acadêmica e evitar dependência de infraestrutura própria — ciente do trade-off de não haver autenticação/isolamento dos tópicos.
+O sensor de chuva foi simulado por um botão digital no Wokwi, dado que o simulador não oferece um componente nativo equivalente; a lógica de leitura (GPIO digital + interrupção) é idêntica à que seria usada com um sensor físico real.
+9.3 Observações Ger
 
-- <b>Observações Gerais</b>: Caso o projeto seja relacionado à alguma competição, deixar registrado no README se aceita ou não participar.
+## 🔍 Estrutura do Código
+- Firmware do ESP32 (src/esp32_firmware.ino)
+Leitura periódica (a cada 4 segundos) do DHT22, controlada por millis() para evitar bloqueios (delay()).
+Leitura do sensor de chuva via interrupção por hardware (attachInterrupt), garantindo que nenhum evento de chuva seja perdido mesmo entre ciclos de leitura do DHT22.
+Validação de leitura (isnan()) antes de qualquer publicação, evitando envio de dados inválidos ao broker.
+Reconexão automática ao broker MQTT em caso de queda de conexão.
+
+- src/receptor_mqtt.py
+Inscreve-se nos três tópicos publicados pelo ESP32.
+A cada mensagem recebida, insere um registro na tabela leituras do banco data/farmtech.db, com timestamp de recebimento, tópico de origem e valor.
+Usa client_id único gerado aleatoriamente para evitar conflito de identificação no broker público.
+
+- src/app.py (Dashboard)
+Lê os dados diretamente do SQLite via pandas.read_sql_query.
+Exibe métricas atuais (temperatura, umidade, status de chuva) em cartões (KPIs).
+Gráficos históricos de temperatura e umidade em abas separadas.
+Tabela com os últimos 10 registros brutos do banco.
+Opção de auto-atualização a cada 5 segundos.
 
 
 ## 🔧 Como executar o código
 
-*Acrescentar as informações necessárias sobre pré-requisitos (IDEs, serviços, bibliotecas etc.) e instalação básica do projeto, descrevendo eventuais versões utilizadas. Colocar um passo a passo de como o leitor pode baixar o seu código e executá-lo a partir de sua máquina ou seu repositório.*
+# Pré-requisitos
+Conta gratuita em Wokwi.com para simular o circuito ESP32.
+Python 3.10+ instalado na máquina local.
+Conexão com a internet (necessária para o Wokwi acessar o broker MQTT público e para o script Python receber as mensagens).
 
+# Clonar o repositório
+git clone <link-do-repositorio>
+cd ir-alem
 
+# Instalar as dependências Python
+pip install paho-mqtt pandas streamlit
+
+# Execução
+Abra o projeto no Wokwi.com e inicie a simulação do circuito ESP32 + DHT22 + botão (arquivo src/esp32_firmware.ino).
+Em um terminal local, execute o receptor MQTT (mantenha rodando durante toda a demonstração):
+   python src/receptor_mqtt.py
+   streamlit run src/app.py
+Acesse o dashboard em http://localhost:8501
+   
 ## 🗃 Histórico de lançamentos
 
 * 0.5.0 - XX/XX/2024
