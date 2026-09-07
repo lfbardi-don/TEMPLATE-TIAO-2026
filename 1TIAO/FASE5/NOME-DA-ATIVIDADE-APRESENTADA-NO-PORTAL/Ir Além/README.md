@@ -10,27 +10,31 @@
 
 <br>
 
-# Nome do projeto/atividade
+#🌱 Ir Além — Sistema de Coleta e Comunicação de Dados via ESP32 e Wi-Fi
+
+FarmTech Solutions — Projeto de extensão Ir Além 1
 
 ## Nome do grupo
 
 ## 👨‍🎓 Integrantes: 
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Nome do integrante 1</a>
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Nome do integrante 2</a>
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Nome do integrante 3</a> 
+- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Karina Queiroz de Gennaro | 570928 1</a>
+- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Luis Felipe Bardi | 569479</a>
+- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Beatriz de Oliveira Ossola Ribeiro | 570190</a> 
 - <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Nome do integrante 4</a> 
 - <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Nome do integrante 5</a>
 
 ## 👩‍🏫 Professores:
 ### Tutor(a) 
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Nome do Tutor</a>
+- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Sabrina Otoni</a>
 ### Coordenador(a)
-- <a href="https://www.linkedin.com/in/andregodoichiovato/">Nome do Coordenador</a>
+- <a href="https://www.linkedin.com/in/andregodoichiovato/">André Godoi</a>
 
 
 ## 📜 Descrição
 
-*Descreva seu projeto com base no texto do PBL (até 600 palavras)*
+*Este projeto implementa um sistema de telemetria agrícola em tempo real utilizando um ESP32 integrado via Wi-Fi, coletando dados de dois sensores distintos e publicando-os em um broker MQTT para armazenamento em banco de dados SQLite e visualização em um dashboard interativo (Streamlit).
+
+O objetivo é monitorar, de forma remota e contínua, as condições ambientais de uma área de cultivo — temperatura, umidade relativa do ar e ocorrência de chuva — permitindo à FarmTech Solutions apoiar decisões de manejo agrícola (irrigação, plantio, colheita) com base em dados reais e históricos.*
 
 
 ## 📁 Estrutura de pastas
