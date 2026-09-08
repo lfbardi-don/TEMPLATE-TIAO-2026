@@ -86,8 +86,8 @@ O sistema não expõe uma API REST tradicional — a interface entre os componen
                                
 ## 📎 Links e Observações
 
-- Vídeo de demonstração (não listado, YouTube): (inserir link)
-- Simulação no Wokwi: (inserir link do projeto no Wokwi, se público)
+- Vídeo de demonstração (não listado, YouTube): https://youtu.be/M8LBDjLW25M
+- Simulação no Wokwi: https://wokwi.com/projects/474376654703049729
 
 ## ⚡ Explicação de Decisões Técnicas
 Optou-se por SQLite em vez de CSV para o armazenamento histórico, por ser um banco de dados relacional real (permitido explicitamente pelo enunciado), mais robusto contra concorrência de escrita e mais alinhado a boas práticas de persistência de dados IoT.
