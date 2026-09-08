@@ -33,13 +33,38 @@ Este projeto implementa um sistema de telemetria agrícola em tempo real utiliza
 
 O objetivo é monitorar, de forma remota e contínua, as condições ambientais de uma área de cultivo — temperatura, umidade relativa do ar e ocorrência de chuva — permitindo à FarmTech Solutions apoiar decisões de manejo agrícola (irrigação, plantio, colheita) com base em dados reais e históricos.
 
+
 ## 🧠 Justificativa da Escolha dos Sensores
-Sensor	Variável medida	Motivo da escolha
-DHT22	Temperatura do ar e umidade relativa	São as duas variáveis climáticas mais diretamente relacionadas à necessidade hídrica das plantas e ao risco de estresse térmico ou proliferação de fungos. O DHT22 foi escolhido em vez do DHT11 por ter maior precisão e faixa de leitura mais ampla, relevante para monitoramento agrícola.
-Botão (simulando sensor de chuva)	Ocorrência de precipitação	No ambiente de simulação Wokwi não há um componente nativo de sensor de chuva; um botão digital com interrupção foi usado para representar fielmente o comportamento binário de um sensor de chuva real (tipo FC-37/YL-83: contato fecha na presença de água). A lógica de software (leitura via interrupção, GPIO digital) é idêntica à que seria usada com o sensor físico — a troca do componente não exige nenhuma mudança na arquitetura do sistema.
+### DHT22 — Temperatura do Ar e Umidade Relativa
 
-Isso satisfaz o requisito de pelo menos dois sensores distintos, ambos alinhados ao contexto de monitoramento agrícola da FarmTech Solutions.
+O DHT22 é um sensor digital combinado que mede simultaneamente temperatura e umidade relativa do ar, duas das variáveis climáticas mais críticas para o manejo agrícola:
+ Temperatura do ar influencia diretamente a taxa de evapotranspiração das plantas, o ritmo de desenvolvimento das culturas e o risco de estresse térmico em períodos de calor extremo ou geadas.
+ 
+ Umidade relativa do ar está diretamente ligada à necessidade hídrica das plantas (quanto menor a umidade, maior a perda de água por transpiração) e é também um dos principais fatores de risco para proliferação de fungos e doenças na lavoura em ambientes muito úmidos.
 
+
+- Por que o DHT22 e não o DHT11: ambos os sensores medem as mesmas duas grandezas, mas o DHT22 foi escolhido por oferecer:
+
+| Característica | DHT11 | DHT22 |
+| :--- | :--- | :--- |
+| Faixa de temperatura | 0–50 °C | -40–80 °C |
+| Faixa de umidade | 20–90% | 0–100% |
+| Precisão de temperatura | ±2 °C | ±0.5 °C |
+| Precisão de umidade | ±5% | ±2–5% |
+
+Para um cenário agrícola real, onde variações de temperatura podem ser mais extremas (geadas noturnas, calor intenso durante o dia) e a precisão da leitura impacta diretamente a qualidade da decisão de manejo (por exemplo, decidir se é necessário irrigar), a faixa mais ampla e a maior precisão do DHT22 o tornam a escolha mais adequada ao contexto da FarmTech Solutions.
+
+### Botão Digital — Simulação de Sensor de Chuva
+
+Para representar a ocorrência de precipitação, foi utilizado um botão digital com leitura por interrupção, simulando o comportamento de um sensor de chuva real.
+
+Por que essa escolha: sensores de chuva físicos mais comuns no mercado (como o módulo FC-37 / YL-83) funcionam, em sua essência, como uma chave digital: uma placa com trilhas condutoras fecha o circuito quando entra em contato com água, gerando um sinal digital (HIGH/LOW) equivalente ao de um botão pressionado. Como o Wokwi (ambiente de simulação utilizado neste projeto) não disponibiliza um componente nativo de sensor de chuva, o botão digital foi adotado como substituto funcionalmente equivalente:
+
+Do ponto de vista do hardware simulado, ambos os componentes geram o mesmo tipo de sinal (digital, binário).
+Do ponto de vista do firmware, a leitura é feita da mesma forma: um pino digital configurado com INPUT_PULLUP, tratado por uma interrupção de hardware (attachInterrupt) que dispara na borda de descida (FALLING) — exatamente a lógica que seria usada com o sensor real.
+Isso significa que a migração para o sensor físico, em uma implementação com hardware real, não exigiria nenhuma alteração de arquitetura ou de lógica de software — apenas a troca do componente conectado ao mesmo GPIO.
+
+A variável "ocorrência de chuva" é relevante para a FarmTech Solutions porque impacta diretamente decisões como suspensão temporária de irrigação automatizada, previsão de risco de encharcamento do solo e planejamento de janelas de pulverização ou colheita.
 
 ## 📁 Estrutura de pastas
 
