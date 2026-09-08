@@ -69,20 +69,12 @@ A variável "ocorrência de chuva" é relevante para a FarmTech Solutions porque
 ## 📁 Estrutura de pastas
 
 <pre>
-📁 ir-alem/
-├── 📁 docs/
-│   ├── 🖼️ circuito_wokwi.png  # Diagrama do circuito (ESP32 + DHT22 + sensor de chuva)
-│   └── 📄 decisoes_tecnicas.md # Justificativas e decisões de arquitetura
-├── 📁 src/
-│   ├── 💻 esp32_firmware.ino    # Código-fonte do ESP32 (C/C++)
-│   ├── 🐍 receptor_mqtt.py      # Script Python: subscriber MQTT → SQLite
-│   └── 📊 app.py                # Dashboard Streamlit
-├── 📁 data/
-│   └── 🗄️ farmtech.db           # Banco de dados SQLite gerado pela coleta
-├── 📁 entregas/
-│   └── 🔗 video_demonstracao.txt # Link não listado do YouTube
-├── 📁 prints/                   # Capturas de tela do dashboard funcionando
-└── 📄 README.md
+ir-alem/
+├── wifi-scan/           # Projeto Wokwi do ESP32 (firmware, diagram.json, etc.)
+├── app.py               # Dashboard Streamlit
+├── receptor_mqtt.py     # Script Python: subscriber MQTT → SQLite
+├── farmtech.db          # Banco de dados SQLite gerado pela coleta
+└── README.md
 </pre>
 
 ## 💻 Arquitetura e "API" do Sistema
