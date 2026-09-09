@@ -2,8 +2,8 @@
 
 <p align="center">
 <a href="https://www.fiap.com.br/">
-  <img src="../../../assets/logo-fiap.png" 
-       alt="FIAP - Faculdade de Informática e Administração Paulista" 
+  <img src="../../../../assets/logo-fiap.png"
+       alt="FIAP - Faculdade de Informática e Administração Paulista"
        width="40%">
 </a>
 </p>
@@ -14,14 +14,14 @@
 # 🌱 Ir Além — Sistema de Coleta e Comunicação de Dados via ESP32 e Wi-Fi
 FarmTech Solutions — Projeto de extensão Ir Além 1
 
-## 👨‍🎓 Integrantes: 
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Karina Queiroz de Gennaro | 570928 1</a>
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Luis Felipe Bardi | 569479</a>
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Beatriz de Oliveira Ossola Ribeiro | 570190</a> 
+## 👨‍🎓 Integrantes
 
+- Karina Queiroz de Gennaro — RM570928
+- Luis Felipe Bardi — RM569479
+- Beatriz de Oliveira Ossola Ribeiro — RM570190
 
 ## 👩‍🏫 Professores:
-### Tutor(a) 
+### Tutor(a)
 - <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Sabrina Otoni</a>
 ### Coordenador(a)
 - <a href="https://www.linkedin.com/in/andregodoichiovato/">André Godoi</a>
@@ -39,7 +39,7 @@ O objetivo é monitorar, de forma remota e contínua, as condições ambientais 
 
 O DHT22 é um sensor digital combinado que mede simultaneamente temperatura e umidade relativa do ar, duas das variáveis climáticas mais críticas para o manejo agrícola:
  Temperatura do ar influencia diretamente a taxa de evapotranspiração das plantas, o ritmo de desenvolvimento das culturas e o risco de estresse térmico em períodos de calor extremo ou geadas.
- 
+
  Umidade relativa do ar está diretamente ligada à necessidade hídrica das plantas (quanto menor a umidade, maior a perda de água por transpiração) e é também um dos principais fatores de risco para proliferação de fungos e doenças na lavoura em ambientes muito úmidos.
 
 
@@ -69,7 +69,7 @@ A variável "ocorrência de chuva" é relevante para a FarmTech Solutions porque
 ## 📁 Estrutura de pastas
 
 <pre>
-ir-alem/
+Ir Além/
 ├── wifi-scan/           # Projeto Wokwi do ESP32 (firmware, diagram.json, etc.)
 ├── app.py               # Dashboard Streamlit
 ├── receptor_mqtt.py     # Script Python: subscriber MQTT → SQLite
@@ -82,7 +82,7 @@ ir-alem/
 O sistema não expõe uma API REST tradicional — a interface entre os componentes é o contrato de mensagens MQTT: cada tópico funciona como um "endpoint" de publicação, com um payload simples e bem definido.
 
 <pre>
-[ESP32 / Wokwi] 
+[ESP32 / Wokwi]
     │
     ├─(Wi-Fi)────────────────────────┐
     │                                ▼
@@ -100,31 +100,30 @@ O sistema não expõe uma API REST tradicional — a interface entre os componen
                                  [app.py]
                                (Streamlit)
 </pre>
-                               
+
 ## 📎 Links e Observações
 
-- Vídeo de demonstração (não listado, YouTube): https://youtu.be/M8LBDjLW25M
-- Simulação no Wokwi: https://wokwi.com/projects/474376654703049729
+- [Vídeo de demonstração no YouTube](https://youtu.be/M8LBDjLW25M).
+- [Simulação no Wokwi](https://wokwi.com/projects/474376654703049729).
 
 ## ⚡ Explicação de Decisões Técnicas
 Optou-se por SQLite em vez de CSV para o armazenamento histórico, por ser um banco de dados relacional real (permitido explicitamente pelo enunciado), mais robusto contra concorrência de escrita e mais alinhado a boas práticas de persistência de dados IoT.
 Optou-se por um broker MQTT público (HiveMQ) em vez de um broker local, para simplificar a entrega acadêmica e evitar dependência de infraestrutura própria — ciente do trade-off de não haver autenticação/isolamento dos tópicos.
 O sensor de chuva foi simulado por um botão digital no Wokwi, dado que o simulador não oferece um componente nativo equivalente; a lógica de leitura (GPIO digital + interrupção) é idêntica à que seria usada com um sensor físico real.
-9.3 Observações Ger
 
 ## 🔍 Estrutura do Código
-- Firmware do ESP32 (src/esp32_firmware.ino)
+- Firmware do ESP32 (wifi-scan/wifi-scan.ino)
 Leitura periódica (a cada 4 segundos) do DHT22, controlada por millis() para evitar bloqueios (delay()).
 Leitura do sensor de chuva via interrupção por hardware (attachInterrupt), garantindo que nenhum evento de chuva seja perdido mesmo entre ciclos de leitura do DHT22.
 Validação de leitura (isnan()) antes de qualquer publicação, evitando envio de dados inválidos ao broker.
 Reconexão automática ao broker MQTT em caso de queda de conexão.
 
-- src/receptor_mqtt.py
+- receptor_mqtt.py
 Inscreve-se nos três tópicos publicados pelo ESP32.
-A cada mensagem recebida, insere um registro na tabela leituras do banco data/farmtech.db, com timestamp de recebimento, tópico de origem e valor.
+A cada mensagem recebida, insere um registro na tabela leituras do banco farmtech.db, com timestamp de recebimento, tópico de origem e valor.
 Usa client_id único gerado aleatoriamente para evitar conflito de identificação no broker público.
 
-- src/app.py (Dashboard)
+- app.py (Dashboard)
 Lê os dados diretamente do SQLite via pandas.read_sql_query.
 Exibe métricas atuais (temperatura, umidade, status de chuva) em cartões (KPIs).
 Gráficos históricos de temperatura e umidade em abas separadas.
@@ -132,42 +131,42 @@ Tabela com os últimos 10 registros brutos do banco.
 Opção de auto-atualização a cada 5 segundos.
 
 
-## 🔧 Como executar o código
+## 🔧 Como executar
 
-# Pré-requisitos
-Conta gratuita em Wokwi.com para simular o circuito ESP32.
-Python 3.10+ instalado na máquina local.
-Conexão com a internet (necessária para o Wokwi acessar o broker MQTT público e para o script Python receber as mensagens).
+É necessário ter Python 3.10 ou superior, acesso ao Wokwi e conexão com a internet
+para comunicação com o broker MQTT público.
 
-# Clonar o repositório
-git clone <link-do-repositorio>
-cd ir-alem
+Na raiz do repositório, entre na pasta do projeto e instale as dependências:
 
-# Instalar as dependências Python
-pip install paho-mqtt pandas streamlit
+```bash
+cd "1TIAO/FASE5/Cap1/Ir Além"
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install paho-mqtt pandas streamlit
+```
 
-# Execução
-Abra o projeto no Wokwi.com e inicie a simulação do circuito ESP32 + DHT22 + botão (arquivo src/esp32_firmware.ino).
-Em um terminal local, execute o receptor MQTT (mantenha rodando durante toda a demonstração):
-   python src/receptor_mqtt.py
-   streamlit run src/app.py
-Acesse o dashboard em http://localhost:8501
-   
-## 🗃 Histórico de lançamentos
+1. Abra a [simulação no Wokwi](https://wokwi.com/projects/474376654703049729) e inicie
+   o circuito. O firmware está em [wifi-scan/wifi-scan.ino](wifi-scan/wifi-scan.ino).
+2. No terminal com o ambiente ativado, execute o receptor e mantenha-o em execução:
 
-* 0.5.0 - XX/XX/2024
-    * 
-* 0.4.0 - XX/XX/2024
-    * 
-* 0.3.0 - XX/XX/2024
-    * 
-* 0.2.0 - XX/XX/2024
-    * 
-* 0.1.0 - XX/XX/2024
-    *
+   ```bash
+   python receptor_mqtt.py
+   ```
+
+3. Em outro terminal, entre na mesma pasta, ative o ambiente e abra o dashboard:
+
+   ```bash
+   cd "1TIAO/FASE5/Cap1/Ir Além"
+   source .venv/bin/activate
+   streamlit run app.py
+   ```
+
+4. Acesse o [dashboard local](http://localhost:8501).
+
+Execute os dois programas a partir da pasta `Ir Além` para que utilizem o mesmo
+arquivo `farmtech.db`.
 
 ---
-
 
 ## 📋 Licença
 

@@ -2,129 +2,37 @@
 
 <p align="center">
 <a href="https://www.fiap.com.br/">
-  <img src="../../assets/logo-fiap.png" 
-       alt="FIAP - Faculdade de Informática e Administração Paulista" 
+  <img src="../../assets/logo-fiap.png"
+       alt="FIAP - Faculdade de Informática e Administração Paulista"
        width="40%">
 </a>
 </p>
 
 <br>
 
-# 🚀 FASE 5 — [Nome da Fase]
-## 📚 Graduação ON em Inteligência Artificial
+# Fase 5 — Projetos de Inteligência Artificial
 
----
+Esta pasta reúne os trabalhos da Fase 5 da Graduação ON em Inteligência Artificial
+da FIAP. A entrega disponível está apresentada abaixo, com acesso à documentação,
+aos dados e ao notebook executado.
 
-## 👩🏻‍💻 Sobre esta Fase
+## Capítulo 1 — FarmTech Solutions
 
-Esta fase representa uma etapa da minha evolução na Graduação ON em Inteligência Artificial da FIAP.
+O projeto investiga a relação entre condições climáticas e rendimento agrícola em
+quatro culturas. A análise compara cinco modelos de regressão e utiliza
+clusterização para identificar grupos de cenários climáticos e observações atípicas.
 
-Aqui estão organizados:
+- **[Documentação do projeto](Cap1/README.md):** metodologia, principais
+  resultados, limitações e instruções de execução.
+- **[Notebook executado](Cap1/src/LuisFelipeBardi_rm569479_pbl_fase4.ipynb):**
+  análise, código, gráficos e conclusões.
+- **[Entrega 2 — Computação em nuvem (AWS)](Cap1/docs/entrega2_aws.md):**
+  estimativa de custos e comparação das regiões São Paulo e Virgínia do Norte.
+- **[Base de dados](Cap1/data/crop_yield.csv):** dados utilizados na análise.
 
-- 📖 Conteúdos teóricos estudados
-- 🧠 Conceitos fundamentais consolidados
-- 🛠 Tecnologias aplicadas
-- 📂 Projetos desenvolvidos
-- 📊 Resultados obtidos
-- 🎯 Competências adquiridas
+## Tecnologias utilizadas
 
-Esta documentação tem como objetivo demonstrar, de forma estruturada, o que foi aprendido e aplicado durante esta etapa do curso.
-
----
-
-## 🎯 Objetivo da Fase
-
-> Descrever aqui o foco principal da fase.
-
-Exemplo:
-
-- Desenvolver base sólida em Machine Learning supervisionado  
-- Compreender fundamentos de Deep Learning  
-- Construir pipelines completos de dados  
-- Aplicar conceitos de IA em problemas reais  
-
----
-
-## 📖 Conteúdos Abordados
-
-- Conceito A
-- Conceito B
-- Conceito C
-
----
-
-## 🛠 Tecnologias Utilizadas
-
-Durante esta fase, foram utilizadas as seguintes tecnologias:
-
-- Python
-- SQL
-- Pandas / NumPy
-- Scikit-Learn
-- ...
-
-*(Ajustar conforme a fase.)*
-
----
-
-## 📂 Projetos Desenvolvidos
-
-### 📌 Projeto 1 — [Nome do Projeto]
-
-**Descrição:**  
-Breve explicação do problema e da solução proposta.
-
-**Tecnologias utilizadas:**  
-- Tecnologia A  
-- Tecnologia B  
-
-**Principais aprendizados:**  
-- Aprendizado 1  
-- Aprendizado 2  
-
----
-
-### 📌 Projeto 2 — [Nome do Projeto]
-
-**Descrição:**  
-Breve explicação do projeto.
-
-**Tecnologias utilizadas:**  
-- Tecnologia A  
-- Tecnologia B  
-
-**Principais aprendizados:**  
-- Aprendizado 1  
-- Aprendizado 2  
-
----
-
-### 📌 Projeto 3 — [Nome do Projeto]
-
-**Descrição:**  
-Breve explicação do projeto.
-
-**Tecnologias utilizadas:**  
-- Tecnologia A  
-- Tecnologia B  
-
-**Principais aprendizados:**  
-- Aprendizado 1  
-- Aprendizado 2  
-
----
-
-## 🧠 Competências Desenvolvidas
-
-Ao final desta fase, consolidei:
-
-- ✔️ Capacidade de estruturar problemas de IA
-- ✔️ Construção e avaliação de modelos
-- ✔️ Engenharia de dados e features
-- ✔️ Documentação técnica clara
-- ✔️ Versionamento e organização de código
-- ✔️ Comunicação técnica de soluções
-- ✔️ ...
+Python, Jupyter, pandas, NumPy, scikit-learn, Matplotlib e Seaborn.
 
 ---
 
