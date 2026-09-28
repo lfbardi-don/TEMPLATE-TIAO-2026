@@ -1,0 +1,15 @@
+{
+  "schema_version": "observed-demo-source-v1",
+  "title": "Agricultural Load Cycles: Tractor Mission Profiles From Recorded GNSS and CAN Bus Data",
+  "source_doi": "10.5281/zenodo.14619787",
+  "source_license": "CC-BY-4.0",
+  "dataset_split": "validation",
+  "file_name": "fendt314-validation-observed.csv.gz",
+  "size_bytes": 6627620,
+  "byte_sha256": "7cce02f2ee53dadd24cac7d0280462e843844ca4000cdc778df4e47f5dca4be1",
+  "semantic_sha256": "d876974fdbf7a8053038ef652bea027783291f5321fae029a411ba21ce6e390c",
+  "sample_count": 152561,
+  "mission_count": 105,
+  "started_at_utc": "2024-09-07T10:18:16.200000+00:00",
+  "ended_at_utc": "2024-10-19T18:59:46.700000+00:00"
+}

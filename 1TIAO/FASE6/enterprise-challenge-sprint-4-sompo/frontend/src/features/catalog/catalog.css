@@ -1,0 +1,54 @@
+.machine-navigation { display: flex; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid var(--decision-border); margin-bottom: 24px; }
+.machine-navigation a { padding: 12px 16px; text-decoration: none; color: var(--decision-muted); border-bottom: 3px solid transparent; }
+.machine-navigation a[aria-current="page"] { color: var(--decision-accent); border-bottom-color: var(--decision-accent); font-weight: 700; }
+.back-link { display: inline-block; margin-bottom: 20px; text-decoration: none; }
+.machine-data-page { padding-top: 22px; }
+.machine-data-page .back-link { margin-bottom: 12px; }
+.machine-data-page .page-heading { margin-bottom: 14px; }
+.machine-data-page h1 { font-size: 1.9rem; }
+.machine-data-page .machine-navigation { margin-bottom: 18px; }
+.fleet-filter { max-width: 340px; }
+.registration-panel { padding: 18px 20px; }
+.registration-panel > summary { cursor: pointer; font-weight: 700; color: var(--decision-accent); }
+.registration-panel form { margin-top: 20px; }
+.machine-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(min(100%,310px),1fr)); gap: 18px; }
+.machine-tile { display: grid; gap: 10px; padding: 22px; border: 1px solid var(--decision-border); border-radius: 12px; background: var(--decision-surface); }
+.machine-tile h3 { font-size: 1.3rem; }
+.machine-tile > a { margin-top: 8px; }
+.machine-tile .eyebrow { margin: 0; }
+.machine-data-status { display: flex; align-items: center; gap: 8px; margin: 12px 0; font-size: .85rem; color: var(--decision-muted); }
+.data-dot { flex: 0 0 8px; height: 8px; border-radius: 50%; background: var(--decision-border); }
+.data-dot.has-data { background: #067647; }
+.source-tag { display: inline-block; font-size: .75rem; line-height: 1.4; padding: 4px 8px; border-radius: 6px; background: var(--decision-canvas); color: var(--decision-ink-secondary); }
+.source-simulated { background: #fff5d6; color: #754a00; }
+.catalog-empty { padding: 36px 22px; text-align: center; background: var(--decision-surface); border: 1px dashed var(--decision-border); border-radius: 10px; }
+.import-steps { display: flex; padding: 0; margin: 0; list-style: none; gap: 12px; }
+.import-steps li { flex: 1; border-bottom: 3px solid var(--decision-border); padding: 8px 0; color: var(--decision-muted); }
+.import-steps li[data-active="true"] { color: var(--decision-accent); border-color: var(--decision-accent); font-weight: 700; }
+.example-files > summary { cursor: pointer; font-weight: 650; }
+.example-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; padding-top: 18px; }
+.example-grid > div { display: grid; gap: 8px; }
+.example-grid .muted { font-size: .85rem; }
+.example-grid a { font-size: .85rem; }
+.import-preview { padding: 18px; background: var(--decision-canvas); border-radius: 8px; }
+.import-facts { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; margin: 0; }
+.import-facts dt { color: var(--decision-muted); font-size: .8rem; margin-bottom: 5px; }
+.import-facts dd { margin: 0; font-weight: 600; }
+.import-success { border-left: 4px solid #067647; padding: 12px 18px; }
+.import-history-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--decision-border); }
+.import-history-row > div { display: grid; flex: 1; gap: 6px; min-width: min(100%,280px); }
+.import-history-row .muted { font-size: .85rem; }
+.telemetry-toolbar { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+.telemetry-toolbar > .field { min-width: min(100%,320px); max-width: 100%; }
+.telemetry-plot { min-width: 0; }
+.telemetry-plot svg { width: 100%; height: auto; display: block; }
+.chart-scrubber { display: grid; gap: 8px; color: var(--decision-muted); font-size: .8rem; }
+.chart-scrubber input { width: 100%; accent-color: var(--decision-accent); }
+@media (max-width:767px) {
+  .import-facts, .example-grid { grid-template-columns: 1fr 1fr; }
+  .import-facts > div:first-child { grid-column: 1 / -1; }
+  .example-grid { grid-template-columns: 1fr; }
+  .telemetry-toolbar { align-items: stretch; flex-direction: column; }
+  .machine-tile .spread { flex-wrap: wrap; }
+  .registration-panel .spread { align-items: stretch; flex-direction: column; }
+}

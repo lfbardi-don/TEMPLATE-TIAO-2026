@@ -1,0 +1,36 @@
+[project]
+name = "tractor-usage-intelligence"
+version = "0.1.0"
+description = "Contextual telemetry evaluation for the observed Fendt 314 reference"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "alembic>=1.14",
+  "fastapi>=0.115",
+  "httpx>=0.28",
+  "joblib>=1.4",
+  "numpy>=2.0",
+  "pandas>=2.2",
+  "psycopg[binary]>=3.2",
+  "scikit-learn>=1.5",
+  "sqlalchemy>=2.0",
+  "uvicorn>=0.30",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tractor_usage"]
+
+[dependency-groups]
+dev = [
+  "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+testpaths = ["tests"]
+
+[tool.uv]
+package = true
