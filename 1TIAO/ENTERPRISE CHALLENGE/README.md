@@ -1,86 +1,61 @@
-# FIAP - Faculdade de Informática e Administração Paulista
+# Enterprise Challenge — Sompo Seguros
 
 <p align="center">
 <a href="https://www.fiap.com.br/">
-  <img src="../../../assets/logo-fiap.png" 
-       alt="FIAP - Faculdade de Informática e Administração Paulista" 
+  <img src="../../assets/logo-fiap.png"
+       alt="FIAP - Faculdade de Informática e Administração Paulista"
        width="40%">
 </a>
 </p>
 
-<br>
+## SEIVA — Inspeção preventiva Fendt 314
 
-# ENTERPRISE CHALLENGE - [NOME DA EMPRESA]
+O SEIVA usa telemetria para orientar a vistoria preventiva de máquinas. O
+especialista cadastra a frota e a máquina, importa um CSV e consulta os episódios
+sinalizados. O vistoriador segue uma pauta por componente, consulta os gráficos e
+registra os achados. Novos dados permitem acompanhar a operação após a vistoria.
 
-## Nome do grupo
+O modelo treinado combina **K-Means**, **Isolation Forest por regime** e **regras
+físicas** em janelas causais de 60 segundos. A referência foi construída com dados
+observados de uma única Fendt 314. Os CSVs simulados demonstram novas frotas e
+máquinas; não validam o modelo em outras unidades reais. O resultado apoia a
+inspeção, sem diagnosticar dano, mau uso ou probabilidade de sinistro.
 
-## 👨‍🎓 Integrantes: 
-- <a href="https://www.linkedin.com/in/caique-nonato/">Nome do integrante 1</a>
-- <a href="https://www.linkedin.com/in/caique-nonato/">Nome do integrante 2</a>
-- <a href="https://www.linkedin.com/in/caique-nonato/">Nome do integrante 3</a> 
-- <a href="https://www.linkedin.com/in/caique-nonato/">Nome do integrante 4</a> 
-- <a href="https://www.linkedin.com/in/caique-nonato/">Nome do integrante 5</a>
+## Entrega da Fase 6 — Sprint 4
 
-## 👩‍🏫 Professores:
-### Tutor(a) 
-- <a href="https://www.linkedin.com/in/caique-nonato/">Caique Nonato</a>
-### Coordenador(a)
-- <a href="https://www.linkedin.com/in/andregodoichiovato/">Andre Godoi</a>
+O código e a documentação estão em
+[`1TIAO/FASE6/enterprise-challenge-sprint-4-sompo`](../FASE6/enterprise-challenge-sprint-4-sompo/).
 
+- **[Guia do projeto](../FASE6/enterprise-challenge-sprint-4-sompo/README.md):**
+  instalação, execução, login, permissões e testes.
+- **[Fluxo do produto](../FASE6/enterprise-challenge-sprint-4-sompo/README.md#como-funciona):**
+  entrada de dados, inferência, gráficos, vistoria e acompanhamento.
+- **[Vídeo com narração em português](https://youtu.be/ZLmSHQjQImI)**.
+- **[Relatório em Markdown](../FASE6/enterprise-challenge-sprint-4-sompo/docs/FENDT314_SEIVA.md)**
+  · **[PDF](../FASE6/enterprise-challenge-sprint-4-sompo/docs/FENDT314_SEIVA.pdf)**.
+- **[Evolução até a Sprint 4](../FASE6/enterprise-challenge-sprint-4-sompo/docs/FENDT314_SEIVA.md#11-evolução-até-a-sprint-4):**
+  decisões e mudanças de escopo documentadas.
+- **[Model card](../FASE6/enterprise-challenge-sprint-4-sompo/docs/modeling/fendt314-hybrid-v2-model-card.md):**
+  método, avaliação e limites da referência.
 
-## 📜 Descrição
+## Entrega anterior — Fase 5, Sprint 3
 
-*Descreva seu projeto com base no desafio proposto (até 600 palavras)*
+A **[Sprint 3](../FASE5/enterprise-challenge-sprint-3-sompo/README.md)** permanece
+na Fase 5, com seu código e documentação preservados.
 
+## Equipe — Grupo SEIVA
 
-## 📁 Estrutura de pastas
+| Integrante | RM |
+|---|---:|
+| Karina Queiroz de Gennaro | 570928 |
+| Luis Felipe Bardi | 569479 |
+| Beatriz de Oliveira Ossola Ribeiro | 570190 |
 
-Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
+**Instituição:** Faculdade de Informática e Administração Paulista (FIAP)
 
-- <b>docs</b>: Pasta destinada à documentação textual, incluindo brainstorm, atas e registros de reuniões, desenhos, prints, diagramas, storyboard, estratégia de IA e arquitetura do sensor (ESP32, Wokwi, etc.).
-
-- <b>src</b>: Todo o código fonte desenvolvido, como scripts em Python, R, JS ou HTML, notebooks, códigos para ESP32/Arduino, APIs ou microsserviços, além de modelos, inferências e logs.
-
-- <b>data</b>: Contém os dados utilizados, como arquivos CSV, Excel, JSON, bases sintéticas e amostras geradas.
-
-- <b>README.md</b>: Arquivo que serve como guia e explicação geral sobre a ideia do grupo.
-
-‼️ OBSERVAÇÃO DO TUTOR, favor desconsiderar do seu arquivo final: não há obrigação de usar todas as pastas, use apenas o que fizer SENTIDO para a entrega. ‼️
-
-
-## 📎 Links e Observações
-
-- <b>Listagem de Links</b>: Links do projeto (ex. vídeos da entrega, páginas, etc.), 
-
-- <b>Explicação de decisões técnicas</b>: Observações do projeto,
-
-- <b>Observações Gerais</b>: Caso o projeto seja relacionado à alguma competição, deixar registrado no README se aceita ou não participar.
-
-- <b>Detalhamento da ideia</b>: Apresentação geral da ideia.
-
-- <b>Avanços e ajustes</b>: Explicação dos ajustes ou progresso feito no projeto em relação ao Sprint anterior. Deve sempre ser atualizado a cada entrega e deve contemplar novos arquivos relevantes.
-
-
-## 🔧 Como executar o código
-
-*Acrescentar as informações necessárias sobre pré-requisitos (IDEs, serviços, bibliotecas etc.) e instalação básica do projeto, descrevendo eventuais versões utilizadas. Colocar um passo a passo de como o leitor pode baixar o seu código e executá-lo a partir de sua máquina ou seu repositório.*
-
-
-## 🗃 Histórico de lançamentos
-
-* 0.5.0 - XX/XX/2024
-    * 
-* 0.4.0 - XX/XX/2024
-    * 
-* 0.3.0 - XX/XX/2024
-    * 
-* 0.2.0 - XX/XX/2024
-    * 
-* 0.1.0 - XX/XX/2024
-    *
+**Parceiro corporativo:** Sompo Seguros
 
 ---
-
 
 ## 📋 Licença
 

@@ -44,6 +44,13 @@ Organizar e versionar todo o fluxo de desenvolvimento acadêmico, garantindo:
 
 ---
 
+## 📂 Entregas em destaque
+
+- **[Fase 5 — FarmTech Solutions e Sompo Sprint 3](1TIAO/FASE5/README.md):** rendimento agrícola, computação em nuvem e a entrega anterior do SEIVA.
+- **[Fase 6 — Enterprise Challenge Sompo, Sprint 4](1TIAO/FASE6/README.md):** continuidade do SEIVA, com código, demonstração e documentação para inspeção preventiva.
+
+---
+
 ## 🧠 Estrutura Macro do Repositório
 
 ```bash

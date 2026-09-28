@@ -10,121 +10,34 @@
 
 <br>
 
-# 🚀 FASE 6 — [Nome da Fase]
-## 📚 Graduação ON em Inteligência Artificial
+# Fase 6 — Projetos de Inteligência Artificial
 
----
+Esta pasta reúne os trabalhos da Fase 6 da Graduação ON em Inteligência Artificial
+da FIAP, com acesso às entregas, ao código e à documentação.
 
-## 👩🏻‍💻 Sobre esta Fase
+## Enterprise Challenge — Sompo Seguros — Sprint 4
 
-Esta fase representa uma etapa da minha evolução na Graduação ON em Inteligência Artificial da FIAP.
+O **SEIVA** transforma telemetria da Fendt 314 em apoio à inspeção preventiva:
+importar dados, analisar episódios, abrir uma vistoria e registrar os achados.
+O modelo combina regimes operacionais, raridade contextual e regras físicas.
 
-Aqui estão organizados:
+- **[Projeto e execução local](enterprise-challenge-sprint-4-sompo/README.md):**
+  fluxo completo, contas, permissões e comandos para criar ou retomar o ambiente.
+- **[Vídeo com narração em português](https://youtu.be/ZLmSHQjQImI):**
+  demonstração do produto com dados simulados.
+- **[Relatório](enterprise-challenge-sprint-4-sompo/docs/FENDT314_SEIVA.md)**
+  · **[PDF](enterprise-challenge-sprint-4-sompo/docs/FENDT314_SEIVA.pdf)**.
+- **[Evolução até a Sprint 4](enterprise-challenge-sprint-4-sompo/docs/FENDT314_SEIVA.md#11-evolução-até-a-sprint-4):**
+  decisões e mudanças de escopo documentadas.
 
-- 📖 Conteúdos teóricos estudados
-- 🧠 Conceitos fundamentais consolidados
-- 🛠 Tecnologias aplicadas
-- 📂 Projetos desenvolvidos
-- 📊 Resultados obtidos
-- 🎯 Competências adquiridas
+O resultado orienta a vistoria; não é diagnóstico de dano ou probabilidade de
+sinistro. A referência treinada vem de uma única unidade física Fendt 314.
 
-Esta documentação tem como objetivo demonstrar, de forma estruturada, o que foi aprendido e aplicado durante esta etapa do curso.
+A **[Sprint 3](../FASE5/enterprise-challenge-sprint-3-sompo/README.md)** permanece na Fase 5 como entrega anterior.
 
----
+## Tecnologias utilizadas
 
-## 🎯 Objetivo da Fase
-
-> Descrever aqui o foco principal da fase.
-
-Exemplo:
-
-- Desenvolver base sólida em Machine Learning supervisionado  
-- Compreender fundamentos de Deep Learning  
-- Construir pipelines completos de dados  
-- Aplicar conceitos de IA em problemas reais  
-
----
-
-## 📖 Conteúdos Abordados
-
-- Conceito A
-- Conceito B
-- Conceito C
-
----
-
-## 🛠 Tecnologias Utilizadas
-
-Durante esta fase, foram utilizadas as seguintes tecnologias:
-
-- Python
-- SQL
-- Pandas / NumPy
-- Scikit-Learn
-- ...
-
-*(Ajustar conforme a fase.)*
-
----
-
-## 📂 Projetos Desenvolvidos
-
-### 📌 Projeto 1 — [Nome do Projeto]
-
-**Descrição:**  
-Breve explicação do problema e da solução proposta.
-
-**Tecnologias utilizadas:**  
-- Tecnologia A  
-- Tecnologia B  
-
-**Principais aprendizados:**  
-- Aprendizado 1  
-- Aprendizado 2  
-
----
-
-### 📌 Projeto 2 — [Nome do Projeto]
-
-**Descrição:**  
-Breve explicação do projeto.
-
-**Tecnologias utilizadas:**  
-- Tecnologia A  
-- Tecnologia B  
-
-**Principais aprendizados:**  
-- Aprendizado 1  
-- Aprendizado 2  
-
----
-
-### 📌 Projeto 3 — [Nome do Projeto]
-
-**Descrição:**  
-Breve explicação do projeto.
-
-**Tecnologias utilizadas:**  
-- Tecnologia A  
-- Tecnologia B  
-
-**Principais aprendizados:**  
-- Aprendizado 1  
-- Aprendizado 2  
-
----
-
-## 🧠 Competências Desenvolvidas
-
-Ao final desta fase, consolidei:
-
-- ✔️ Capacidade de estruturar problemas de IA
-- ✔️ Construção e avaliação de modelos
-- ✔️ Engenharia de dados e features
-- ✔️ Documentação técnica clara
-- ✔️ Versionamento e organização de código
-- ✔️ Comunicação técnica de soluções
-- ✔️ ...
+Python, pandas, NumPy, scikit-learn, FastAPI, PostgreSQL, React e TypeScript.
 
 ---
 
