@@ -10,59 +10,92 @@
 
 <br>
 
-# Nome do projeto/atividade
+# Detecção de Crachás e Seringas com YOLOv5s (PBL Fase 6 — Enunciado 1)
 
-## Nome do grupo
 
 ## 👨‍🎓 Integrantes: 
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Nome do integrante 1</a>
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Nome do integrante 2</a>
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Nome do integrante 3</a> 
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Nome do integrante 4</a> 
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Nome do integrante 5</a>
+- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Karina Queiroz de Gennaro | 570928</a>
+- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Luis Felipe Bardi | 569479</a>
+- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Beatriz de Oliveira Ossola Ribeiro	 | 570190</a> 
+
 
 ## 👩‍🏫 Professores:
 ### Tutor(a) 
-- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Nome do Tutor</a>
+- <a href="https://www.linkedin.com/in/sabrina-otoni-22525519b/">Sabrina Otoni</a>
 ### Coordenador(a)
-- <a href="https://www.linkedin.com/in/andregodoichiovato/">Nome do Coordenador</a>
+- <a href="https://www.linkedin.com/in/andregodoichiovato/">André Godoi</a>
 
 
 ## 📜 Descrição
 
-*Descreva seu projeto com base no texto do PBL (até 600 palavras)*
+Este projeto foi desenvolvido como solução para o **Enunciado 1 da Fase 6 do PBL**, no qual se propôs a **ampliação das áreas de atuação da FarmTech** para ambientes de automação laboratorial, controle farmacêutico e segurança patrimonial avançada. 
 
+Para atender a essas novas frentes operacionais, tornou-se fundamental implementar soluções de visão computacional focadas na detecção automatizada de **crachás de identificação** e **seringas** por meio da arquitetura **YOLOv5s** (Small), garantindo rastreabilidade, controle de acesso e segurança operacional em ambientes corporativos e farmacêuticos:
+- **Crachás de Identificação (`cracha`):** Essenciais para o controle de acesso, rastreabilidade de equipe e conformidade com normas de segurança em áreas restritas da fábrica e dos laboratórios.
+- **Seringas (`seringa`):** Fundamentais para a monitorização de linhas de produção farmacêutica, controle de estoque de insumos e auditoria automatizada de manipulação de medicação.
+
+O treinamento foi realizado em ambiente computacional de nuvem (Google Colab) utilizando dados anotados no formato YOLO. O modelo final na **Simulação 4 (Expandida)** atingiu um desempenho médio geral (mAP@0.5) de **35.1%**, evidenciando comportamentos distintos entre as duas classes analisadas:
+- **Crachá (62.5% mAP@0.5):** Apresentou alta consistência de localização e confiança, impulsionado por padrões geométricos retangulares bem definidos e superfícies opacas.
+- **Seringa (7.69% mAP@0.5):** Revelou o desafio técnico clássico de redes neurais convolucionais diante de objetos finos, cilíndricos, translúcidos e altamente reflexivos.
+
+A análise rigorosa dos testes práticos demonstra que a opacidade dos crachás facilita a extração de características pelas camadas do modelo, enquanto a transparência do vidro/plástico das seringas gera ruído visual em função das variações de fundo. Como roadmap para evoluções futuras (Simulação 5), planeja-se a inclusão de estratégias avançadas de *data augmentation* com foco em iluminação direcional, variação de contraste e fundos ruidosos.
+
+Todos os relatórios de conclusão das 4 simulações realizadas encontram-se no Colab de forma organizada e justificada.
+De forma a proporcionar uma leitura imersiva e o acompanhamento prático de cada etapa, **todo o passo a passo da solução, a contextualização dos objetos (`cracha` e `seringa`), os códigos de treino/validação e a descrição analítica completa** encontram-se documentados detalhadamente e prontos para execução no Notebook interativo:  
+> 👉 **[Acessar Notebook Executável no Google Colab](https://drive.google.com/drive/folders/1-6sfF80J6KI_1Yia5Elcm9v7Hu0cIwjI?usp=sharing)** 
 
 ## 📁 Estrutura de pastas
 
 Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
 
-- <b>docs</b>: Pasta destinada à documentação textual, incluindo brainstorm, atas e registros de reuniões, desenhos, prints, diagramas, storyboard, estratégia de IA e arquitetura e etc.
+- <b>data</b>: Contém o arquivo `data.yaml` com as configurações de caminhos, quantidade de classes e mapeamento dos rótulos (`cracha` e `seringa`).
 
-- <b>src</b>: Todo o código fonte desenvolvido, como scripts em Python, R, JS ou HTML, notebooks, códigos para ESP32/Arduino, APIs ou microsserviços, além de modelos, inferências e etc. Os tipos de arquivos e códigos variam de acordo com a atividade.
+- <b>docs</b>: Pasta destinada à documentação textual e evidências visuais do projeto, incluindo os registros de inferência (`.jpg`) com as caixas delimitadoras e métricas de detecção.
 
-- <b>data</b>: Contém os dados utilizados, como arquivos CSV, Excel, JSON, bases sintéticas e etc.
+- <b>src</b>: Contém todo o código fonte desenvolvido, incluindo o Notebook executável (`KarinaGennaro_rm570928_pbl_fase6.ipynb`) com o pipeline de treino, validação e teste, além dos pesos finais otimizados do modelo (`best.pt`).
 
 - <b>README.md</b>: Arquivo que serve como guia e explicação geral sobre o projeto (o mesmo que você está lendo agora).
 
-- <b>Ir Além</b>: pasta onde os arquivos referentes às atividades "Ir Além" devem ser inseridos, evitando misturar com as entregas principais.
-
-
-‼️ OBSERVAÇÃO DO TUTOR, favor desconsiderar do seu arquivo final: não há obrigação de usar todas as pastas, use apenas o que fizer SENTIDO para a entrega. ‼️
 
 
 ## 📎 Links e Observações
 
-- <b>Listagem de Links</b>: Links do projeto (ex. vídeos da entrega, páginas, etc.), 
+- <b>Listagem de Links e Caminho de Acesso</b>: 
+  - **Vídeo de Demonstração / Funcionamento:** [Assistir ao Vídeo do Projeto no YouTube/Drive](COLOQUE_SEU_LINK_DE_VIDEO_AQUI)
+  - **Notebook de Execução no Google Colab:** [Acessar Notebook da Fase 6 no Colab](https://colab.research.google.com/drive/1mIIYD4JL1gGeqGHnlRJiXIQgk1meQ5d4?usp=sharing)  
+    *(Caminho no repositório: `./src/KarinaGennaro_rm570928_pbl_fase6.ipynb`)*
+  - **Dataset e Ativos no Google Drive:** [Acessar Pasta FarmTech_dataset](https://drive.google.com/drive/folders/1-6sfF80J6KI_1Yia5Elcm9v7Hu0cIwjI?usp=sharing)  
+    *(Caminho: `Meu Drive ➔ FarmTech_dataset/` com as pastas `train/`, `valid/` e `test/`)*
 
-- <b>Explicação de decisões técnicas</b>: Observações do projeto,
+- <b>Explicação de decisões técnicas</b>: 
+  - A arquitetura **YOLOv5s** foi selecionada pelo excelente equilíbrio entre baixo custo computacional e velocidade de inferência em tempo real para dispositivos IoT/edge na FarmTech.
+  - A disparidade entre a detecção do crachá e da seringa reflete a necessidade de um dataset sintético mais amplo para insumos translúcidos nas próximas fases do projeto.
 
-- <b>Observações Gerais</b>: Caso o projeto seja relacionado à alguma competição, deixar registrado no README se aceita ou não participar.
+- <b>Observações Gerais</b>: 
+  - Projeto apto para avaliações acadêmicas e competições institucionais da FIAP.
 
 
 ## 🔧 Como executar o código
 
-*Acrescentar as informações necessárias sobre pré-requisitos (IDEs, serviços, bibliotecas etc.) e instalação básica do projeto, descrevendo eventuais versões utilizadas. Colocar um passo a passo de como o leitor pode baixar o seu código e executá-lo a partir de sua máquina ou seu repositório.*
+### Pré-requisitos
+- Python 3.8+
+- PyTorch e dependências oficiais do YOLOv5
+- Ambiente com suporte a GPU (recomendado Google Colab)
+
+### Passo a passo para execução local ou em nuvem:
+
+1. Clone o repositório em sua máquina:
+   ```bash
+   git clone [https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git](https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git)
+   cd SEU_REPOSITORIO
+
+2. Instale as dependências exigidas pelo YOLOv5::
+pip install -r [https://raw.githubusercontent.com/ultralytics/yolov5/master/requirements.txt](https://raw.githubusercontent.com/ultralytics/yolov5/master/requirements.txt)
+
+3. Para rodar a detecção em novas imagens utilizando os pesos treinados localizados na pasta src/:
+python yolov5/detect.py --weights src/best.pt --img 640 --conf 0.25 --source caminho_da_pasta_de_imagens/
+
+Para acompanhar todo o histórico de treinamento e validação, abra e execute as células do arquivo src/KarinaGennaro_rm570928_pbl_fase6.ipynb dentro do Google Colab.
 
 
 ## 🗃 Histórico de lançamentos
