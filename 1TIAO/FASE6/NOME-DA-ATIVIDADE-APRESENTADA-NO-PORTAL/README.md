@@ -44,6 +44,24 @@ Todos os relatórios de conclusão das 4 simulações realizadas encontram-se no
 De forma a proporcionar uma leitura imersiva e o acompanhamento prático de cada etapa, **todo o passo a passo da solução, a contextualização dos objetos (`cracha` e `seringa`), os códigos de treino/validação e a descrição analítica completa** encontram-se documentados detalhadamente e prontos para execução no Notebook interativo:  
 > 👉 **[Acessar Notebook Executável no Google Colab](https://drive.google.com/drive/folders/1-6sfF80J6KI_1Yia5Elcm9v7Hu0cIwjI?usp=sharing)** 
 
+## 🔁 Entrega 2
+
+Na Entrega 2 usamos a mesma base para comparar três abordagens:
+
+- o YOLO customizado da Entrega 1;
+- o YOLO padrão, isto é, o YOLOv5s pré-treinado no COCO, sem nenhum treino;
+- uma CNN treinada do zero.
+
+Também treinamos de novo o YOLO customizado depois de corrigir os rótulos de treino. A comparação
+considera facilidade de uso, precisão, tempo de treino e tempo de inferência. Os resultados e a
+análise estão no notebook.
+
+- [Notebook executado](src/LuisFelipeBardi_rm569479_pbl_fase6_entrega2.ipynb) ·
+  [Abrir no Colab](https://colab.research.google.com/github/lfbardi-don/TEMPLATE-TIAO-2026/blob/main/1TIAO/FASE6/NOME-DA-ATIVIDADE-APRESENTADA-NO-PORTAL/src/LuisFelipeBardi_rm569479_pbl_fase6_entrega2.ipynb)
+- Para executar, escolha a GPU T4 e adicione um atalho da
+  [pasta da base](https://drive.google.com/drive/folders/1-6sfF80J6KI_1Yia5Elcm9v7Hu0cIwjI?usp=sharing)
+  na raiz do seu Meu Drive.
+
 ## 📁 Estrutura de pastas
 
 Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
@@ -52,7 +70,7 @@ Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
 
 - <b>docs</b>: Pasta destinada à documentação textual e evidências visuais do projeto, incluindo os registros de inferência (`.jpg`) com as caixas delimitadoras e métricas de detecção.
 
-- <b>src</b>: Contém todo o código fonte desenvolvido, incluindo o Notebook executável (`KarinaGennaro_rm570928_pbl_fase6.ipynb`) com o pipeline de treino, validação e teste, além dos pesos finais otimizados do modelo (`best.pt`).
+- <b>src</b>: Contém todo o código fonte desenvolvido, incluindo o Notebook executável (`KarinaGennaro_rm570928_pbl_fase6.ipynb`) com o pipeline de treino, validação e teste, além dos pesos finais otimizados do modelo (`best.pt`). O notebook da Entrega 2 (`LuisFelipeBardi_rm569479_pbl_fase6_entrega2.ipynb`) também fica nesta pasta.
 
 - <b>README.md</b>: Arquivo que serve como guia e explicação geral sobre o projeto (o mesmo que você está lendo agora).
 
