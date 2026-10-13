@@ -62,6 +62,15 @@ análise estão no notebook.
   [pasta da base](https://drive.google.com/drive/folders/1-6sfF80J6KI_1Yia5Elcm9v7Hu0cIwjI?usp=sharing)
   na raiz do seu Meu Drive.
 
+  ## Ir Além 2 – Transfer Learning + Fine Tuning com segmentação
+
+Comparamos a classificação de crachá e seringa com MobileNetV2 (pré-treinada na ImageNet) usando imagens originais e imagens segmentadas com rembg (fundo removido).
+
+![Arquitetura do Ir Além 2](imagens/arquitetura_ir_alem2.png)
+
+- **Notebook:** [ir_alem_2_transfer_learning.ipynb](ir_alem/ir_alem_2_transfer_learning.ipynb) (código, resultados e conclusões)
+- **Vídeo de demonstração:** [link do YouTube (não listado)](COLE_O_LINK_AQUI)
+
 ## 📁 Estrutura de pastas
 
 Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
