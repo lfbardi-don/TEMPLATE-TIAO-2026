@@ -69,7 +69,6 @@ Comparamos a classificação de crachá e seringa com MobileNetV2 (pré-treinada
 [Arquitetura do Ir Além 2](Ir Além/arquitetura_ir_alem2.png)
 
 - **Notebook:** [ir_alem_2_transfer_learning.ipynb](ir_alem/ir_alem_2_transfer_learning.ipynb) (código, resultados e conclusões)
-- [Abrir no Colab]([https://colab.research.google.com/drive/1by3dNaMqwyN0PTA310ygwh4oSynw7_EN?usp=sharing])
 - **Vídeo de demonstração:** [link do YouTube (não listado)](https://youtu.be/RMnbAtI2rvQ)
 
 ## 📁 Estrutura de pastas
