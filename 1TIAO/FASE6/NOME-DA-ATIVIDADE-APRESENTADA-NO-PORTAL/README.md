@@ -88,7 +88,7 @@ Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
 ## 📎 Links e Observações
 
 - <b>Listagem de Links e Caminho de Acesso</b>: 
-  - **Vídeo de Demonstração / Funcionamento:** [Assistir ao Vídeo do Projeto no YouTube/Drive](COLOQUE_SEU_LINK_DE_VIDEO_AQUI)
+  - **Vídeo de Demonstração / Funcionamento:** [Assistir ao Vídeo do Projeto no YouTube/Drive](https://youtu.be/RMnbAtI2rvQ)
   - **Notebook de Execução no Google Colab:** [Acessar Notebook da Fase 6 no Colab](https://colab.research.google.com/drive/1mIIYD4JL1gGeqGHnlRJiXIQgk1meQ5d4?usp=sharing)  
     *(Caminho no repositório: `./src/KarinaGennaro_rm570928_pbl_fase6.ipynb`)*
   - **Dataset e Ativos no Google Drive:** [Acessar Pasta FarmTech_dataset](https://drive.google.com/drive/folders/1-6sfF80J6KI_1Yia5Elcm9v7Hu0cIwjI?usp=sharing)  
