@@ -69,7 +69,7 @@ Comparamos a classificação de crachá e seringa com MobileNetV2 (pré-treinada
 ![Arquitetura do Ir Além 2](<Ir Além/imagens/arquitetura_ir_alem2.png>)
 
 - **Notebook:** [BeatrizOssola_rm570190_pbl_fase6_iralem2.ipynb](src/BeatrizOssola_rm570190_pbl_fase6_iralem2.ipynb) (código, resultados e conclusões)
-- **Vídeo de demonstração:** [link do YouTube (não listado)](COLE_O_LINK_AQUI)
+- **Vídeo de demonstração:** [link do YouTube (não listado)](https://www.youtube.com/watch?v=1nZdUYVdXv8)
 
 ## 📁 Estrutura de pastas
 
